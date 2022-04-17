@@ -83,11 +83,11 @@ class trendlineClass():
         :return: the coefficients for the exponential fit that minimizes the objective function
         """
         Start = np.array([0, 0, 0]) #Guess for the beginning of the arrayy
-        def obj(a=Start):
+        def Object(a=Start):
             fn = lambda x: self.Exp(xval=x, a=a) #Exponential function
             return self.SSE(fn=fn)
 
-        self.a = opt.minimize(obj, x0=Start, method='Nelder-Mead')
+        self.a = opt.minimize(Object, x0=Start, method='Nelder-Mead')
         return self.a.x
 
     def GetEq(self, aa, exp=False):
